@@ -61,6 +61,7 @@ async def on_ready():
     bot.osu_role = discord.utils.get(guild.roles, name="Osu!")
     bot.warthunder_role = discord.utils.get(guild.roles, name="WarThunder")
     bot.payday2_role = discord.utils.get(guild.roles, name="Payday 2")
+    bot.stick_role = discord.utils.get(guild.roles, name="Stick Fight")
 
     # Channels
     bot.announcements_channel = discord.utils.get(guild.channels, name="announcements")
