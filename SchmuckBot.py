@@ -26,7 +26,7 @@ if not os.path.isfile("database/ignored_users.json"):
     with open("database/ignored_users.json", "w") as f:
         f.write('{"users": []}')
 
-bot_prefix = ["!", "."]
+bot_prefix = ["!","."]
 bot = commands.Bot(command_prefix=bot_prefix, description="SchmuckBot, a general purpose discord bot.", max_messages=10000)
 
 # Read config.ini
@@ -39,6 +39,16 @@ async def on_ready():
     for guild in bot.guilds:
         bot.guild = guild
 
+    @bot.event
+    async def on_member_join(member):
+        schmuck_role = discord.utils.get(guild.roles, name="Schmucks")
+        #print("member join: " + member.name)
+        if schmuck_role not in member.roles:
+            await member.add_roles(schmuck_role)
+            #print("gave " + member.name + " the " + schmuck_role + "role")
+        #else:
+           # print("role already given?")
+
     # Roles
     
     bot.owner_role = discord.utils.get(guild.roles, name="Owner Bud")
@@ -47,7 +57,7 @@ async def on_ready():
     bot.nsfw_role = discord.utils.get(guild.roles, name="mcspankies")
     bot.muted_role = discord.utils.get(guild.roles, name="No Talk")
     bot.su_role = discord.utils.get(guild.roles, name="sudo")
-    bot.schmuck_role = discord.utils.get(guild.roles, name="Schmucks")
+    #bot.schmuck_role = discord.utils.get(guild.roles, name="Schmucks")
 
     #Game Roles
     bot.pubg_role = discord.utils.get(guild.roles, name="PUBG")
@@ -141,11 +151,7 @@ async def on_error(ctx, event_method, *args, **kwargs):
     print(args)
     print(kwargs)
 
-@bot.event
-async def on_member_join(self, ctx, member):
-    member = on_member_join 
-    await member.add_roles(self.bot.schmucks_role)
-    
+
 
     
 # Core commands
