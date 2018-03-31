@@ -31,25 +31,57 @@ class Misc:
     @commands.command()
     async def about(self, ctx):
         """About SchmuckBot."""
-        return await ctx.send("View my source code here: https://github.com/PhazonicRidley/SchmuckBot")
+        return await ctx.send("Link coming soon")
 
     @commands.command(pass_context=True)
     async def sudo(self, ctx, roles):
-        """allow's PhazonicRidley to sudo to fix the bot when necessary"""
+        """Gain temp mod powers, only need by PhazonicRidley to fix the bot"""
 
         user = ctx.message.author
+        await ctx.message.delete()
 
         if ctx.message.author.id == 286488483994927109:
-            if self.bot.sudo_role in user.roles:
-                await user.remove_roles(self.bot.sudo_role)
-                await ctx.send(":blobsweat: **PhazonicRidley is no longer a HalfOP**")
+            self.bot.su_role in user.roles
+            await ctx.send("You are already a HalfOP")
 
-            else:
-                await user.add_roles(self.bot.sudo_role)
-                await ctx.send(":ambulance: **PhazonicRidley is now a HalfOP! Welcome to the twilight zone!**")
+        elif ctx.message.author.id == 286488483994927109:
+            await user.add_roles(self.bot.su_role)
+            await ctx.send(":ambulance: **PhazonicRidley is now a HalfOP! Welcome to the twilight zone!**")
+            emb = discord.Embed(title="Gained Temp Powers", colour=discord.Colour.orange())
+            emb.set_thumbnail(url=user.avatar_url)
+            emb.add_field(name="User:", value=user.name, inline=True)
+            logchannel = self.bot.logs_channel
+            await logchannel.send("", embed=emb)
 
+        
         else:
            return await ctx.send("You do not have permission to use this command!")
+
+    @commands.command(pass_context=True)
+    async def unsudo(self, ctx, roles):
+        """Remove temp mod powers, only needed by PhazonicRidley"""
+        user = ctx.message.author
+        await ctx.message.delete()
+
+        if ctx.message.author.id == 286488483994927109:
+            self.bot.su_role not in user.roles
+            await ctx.send("You are not a HalfOP")
+            
+        elif ctx.message.author.id == 286488483994927109:
+            await user.remove_roles(self.bot.su_role)
+            await ctx.send("**Problem Solved! PhazonicRidley is no longer a HalfOP!**")
+            emb = discord.Embed(title="No longer HalfOP", colour=discord.Colour.orange())
+            emb.set_thumbnail(url=user.avatar_url)
+            emb.add_field(name="User:", value=user.name, inline=True)
+            logchannel = self.bot.logs_channel
+            await logchannel.send("", embed=emb)
+
+        else:
+            return await ctx.send("You do not have permission to use this command!")
+
+
+
+        
         
     @commands.command(pass_context=True)
     async def togglechannel(self, ctx, channel):
@@ -86,26 +118,7 @@ class Misc:
         except discord.errors.Forbidden:
             await ctx.say("💢 I don't have permission to do this.")
        
-    @commands.command(pass_context=True)
-    async def listgames(self, ctx,):
-        """list game roles"""
-        
-        await ctx.message.delete()
-        embed = discord.Embed(title="List of Game roles", color=10689279)
-        embed.description = """-PUBG
--Minecraft
--Rainbow 6 Seige
--Golf
--GTAV
--Fortnite
--Overwatch
--CSGO
--Osu!
--WarThunder
--Payday 2
-"""       
-        await ctx.send (embed=embed)
-            
+   
 
 
 

@@ -46,7 +46,8 @@ async def on_ready():
     bot.botdev_role = discord.utils.get(guild.roles, name="SchmuckBotAllow")
     bot.nsfw_role = discord.utils.get(guild.roles, name="mcspankies")
     bot.muted_role = discord.utils.get(guild.roles, name="No Talk")
-    bot.sudo_role = discord.utils.get(guild.roles, name="sudo")
+    bot.su_role = discord.utils.get(guild.roles, name="sudo")
+    bot.schmuck_role = discord.utils.get(guild.roles, name="Schmucks")
 
     #Game Roles
     bot.pubg_role = discord.utils.get(guild.roles, name="PUBG")
@@ -66,6 +67,7 @@ async def on_ready():
     bot.botdev_channel = discord.utils.get(guild.channels, name="botwork")
     bot.botdms_channel = discord.utils.get(guild.channels, name="bot-dm")
     bot.logs_channel = discord.utils.get(guild.channels, name="server-log")
+    bot.memberlogs_channel = discord.utils.get(guild.channels, name="join-leave-log")
 
     # Ignored users
     with open("database/ignored_users.json", "r") as f:
@@ -79,6 +81,7 @@ async def on_ready():
         'addons.memes',
         'addons.mod',
         'addons.game',
+        'addons.events',
      ]
 
     # Notify user if an addon fails to load.
@@ -137,6 +140,11 @@ async def on_error(ctx, event_method, *args, **kwargs):
     print(args)
     print(kwargs)
 
+@bot.event
+async def on_member_join(self, ctx, member):
+    member = on_member_join 
+    await member.add_roles(self.bot.schmucks_role)
+    
 
     
 # Core commands
@@ -183,7 +191,7 @@ async def pull(ctx, pip=None):
                 "requirements.txt"])
             pip_text = " and updated python dependencies"
         await ctx.send("Pulled changes{}! Restarting...".format(pip_text))
-        execv("python3 SchmuckBot.py", argv)
+        call(["python3.6", "SchmuckBot.py"])
     else:
         if "pacman" in ctx.message.content:
             await ctx.send("`{} is not in the sudoers file. This incident will be reported.`".format(ctx.message.author.display_name))
