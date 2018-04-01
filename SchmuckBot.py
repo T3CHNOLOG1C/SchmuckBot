@@ -56,7 +56,7 @@ async def on_ready():
     bot.botdev_role = discord.utils.get(guild.roles, name="SchmuckBotAllow")
     bot.nsfw_role = discord.utils.get(guild.roles, name="mcspankies")
     bot.muted_role = discord.utils.get(guild.roles, name="No Talk")
-    bot.su_role = discord.utils.get(guild.roles, name="sudo")
+    bot.sudo_role = discord.utils.get(guild.roles, name="sudo")
     #bot.schmuck_role = discord.utils.get(guild.roles, name="Schmucks")
 
     #Game Roles
