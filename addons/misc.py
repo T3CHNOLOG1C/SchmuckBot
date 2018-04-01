@@ -44,7 +44,7 @@ class Misc:
          #   self.bot.sudo_role in user.roles
           #  await ctx.send("You are already a HalfOP")
 
-        elif ctx.message.author.id == 286488483994927109:
+        if ctx.message.author.id == 286488483994927109:
             await user.add_roles(self.bot.sudo_role)
             await ctx.send(":ambulance: **PhazonicRidley is now a HalfOP! Welcome to the twilight zone!**")
             emb = discord.Embed(title="Gained Temp Powers", colour=discord.Colour.orange())
@@ -67,7 +67,7 @@ class Misc:
       #      self.bot.sudo_role not in user.roles
       #      await ctx.send("You are not a HalfOP")
             
-        elif ctx.message.author.id == 286488483994927109:
+        if ctx.message.author.id == 286488483994927109:
             await user.remove_roles(self.bot.sudo_role)
             await ctx.send("**Problem Solved! PhazonicRidley is no longer a HalfOP!**")
             emb = discord.Embed(title="No longer HalfOP", colour=discord.Colour.orange())
