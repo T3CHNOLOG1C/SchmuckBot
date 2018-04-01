@@ -70,7 +70,7 @@ class Games:
 
         elif role == "FortNUT":
             if self.bot.fortnite_role in user.roles:
-                await user.remove_roles(self.bot.fornite_role)
+                await user.remove_roles(self.bot.fortnite_role)
                 await user.send("Left FortNUT role")
 
             else:
