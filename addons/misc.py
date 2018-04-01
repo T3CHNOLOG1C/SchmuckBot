@@ -40,9 +40,9 @@ class Misc:
         user = ctx.message.author
         await ctx.message.delete()
 
-        if ctx.message.author.id == 286488483994927109:
-            self.bot.sudo_role in user.roles
-            await ctx.send("You are already a HalfOP")
+        #if ctx.message.author.id == 286488483994927109:
+         #   self.bot.sudo_role in user.roles
+          #  await ctx.send("You are already a HalfOP")
 
         elif ctx.message.author.id == 286488483994927109:
             await user.add_roles(self.bot.sudo_role)
@@ -63,9 +63,9 @@ class Misc:
         user = ctx.message.author
         await ctx.message.delete()
 
-        if ctx.message.author.id == 286488483994927109:
-            self.bot.sudo_role not in user.roles
-            await ctx.send("You are not a HalfOP")
+      #  if ctx.message.author.id == 286488483994927109:
+      #      self.bot.sudo_role not in user.roles
+      #      await ctx.send("You are not a HalfOP")
             
         elif ctx.message.author.id == 286488483994927109:
             await user.remove_roles(self.bot.sudo_role)
