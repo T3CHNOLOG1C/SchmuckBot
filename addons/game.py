@@ -122,6 +122,15 @@ class Games:
                 await user.add_roles(self.bot.payday2_role)
                 await user.send("Joined Payday2 role")
 
+        elif role == "StickFight":
+            if self.bot.stick_role in user.roles:
+                await user.remove_roles(self.bot.stick_role)
+                await user.send("Left Stick Fight role")
+
+            else:
+                await user.add_roles(self.bot.stick_role)
+                await user.send("Joined Stick Fight role")
+
         else:
             await user.send("{} is not a game role".format(role))
 
