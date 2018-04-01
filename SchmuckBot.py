@@ -26,7 +26,7 @@ if not os.path.isfile("database/ignored_users.json"):
     with open("database/ignored_users.json", "w") as f:
         f.write('{"users": []}')
 
-bot_prefix = [","]
+bot_prefix = ["."]
 bot = commands.Bot(command_prefix=bot_prefix, description="SchmuckBot, a general purpose discord bot.", max_messages=10000)
 
 # Read config.ini
