@@ -62,16 +62,16 @@ async def on_ready():
     #Game Roles
     bot.pubg_role = discord.utils.get(guild.roles, name="PUBG")
     bot.minecraft_role = discord.utils.get(guild.roles, name="Minecraft")
-    bot.r6s_role = discord.utils.get(guild.roles, name="Rainbow 6 Seige")
+    bot.r6s_role = discord.utils.get(guild.roles, name="Rainbow6")
     bot.golf_role = discord.utils.get(guild.roles, name="Golf")
     bot.gtav_role = discord.utils.get(guild.roles, name="GTAV")
     bot.fortnite_role = discord.utils.get(guild.roles, name="FortNUT")
     bot.overwatch_role = discord.utils.get(guild.roles, name="Overwatch")
     bot.csgo_role = discord.utils.get(guild.roles, name="CSGO")
-    bot.osu_role = discord.utils.get(guild.roles, name="Osu!")
+    bot.osu_role = discord.utils.get(guild.roles, name="Osu")
     bot.warthunder_role = discord.utils.get(guild.roles, name="WarThunder")
-    bot.payday2_role = discord.utils.get(guild.roles, name="Payday 2")
-    bot.stick_role = discord.utils.get(guild.roles, name="Stick Fight")
+    bot.payday2_role = discord.utils.get(guild.roles, name="Payday2")
+    bot.stick_role = discord.utils.get(guild.roles, name="StickFight")
 
     # Channels
     bot.announcements_channel = discord.utils.get(guild.channels, name="announcements")
