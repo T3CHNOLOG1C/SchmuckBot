@@ -36,7 +36,10 @@ class Moderation:
             except IndexError:
                 await ctx.send("Please mention a user.")
                 return
-            dm_msg = "You have been kicked from {} by {} for the following reason:\n{}".format(ctx.guild.name, ctx.message.author, reason)
+            if reason == "":
+                dm_msg = "You have been kicked from {}".format(ctx.guild.name)
+            else:
+                dm_msg = "You have been kicked from {} by {} for the following reason:\n{}".format(ctx.guild.name, ctx.message.author, reason)
             await self.dm(member, dm_msg)
             await member.kick()
             await ctx.send("I've kicked {}.".format(member))
@@ -44,6 +47,8 @@ class Moderation:
             emb.add_field(name="Member:", value=member.name, inline=True)
             emb.add_field(name="Mod:", value=ctx.message.author.name, inline=True)
             emb.add_field(name="Reason:", value=reason, inline=True)
+            if reason == "":
+                reason = "No Reason Given"
             logchannel = self.bot.logs_channel
             await logchannel.send("", embed=emb)
         except discord.errors.Forbidden:
@@ -77,13 +82,19 @@ class Moderation:
         owner = ctx.message.guild.owner
         if len(ctx.message.mentions) == 0:
             if ctx.message.author == owner:
-                await ctx.send("Yes daddy t3ch?")
+                await ctx.send("Yes daddy Kevin?")
+            elif ctx.message.author.id == 102743440026009600:
+                await ctx.send("Yes daddy Sean?")
             else:
                 await ctx.send("Please mention a user.")
         else:
             try:
                 member = ctx.message.mentions[0]
-                dm_msg = "You have been banned from {} by {} for the following reason:\n{}".format(ctx.guild.name, ctx.message.author, reason)
+                if reason == "":
+                    dm_msg = "You have been banned from {}".format(ctx.guild.name)
+                else:
+
+                    dm_msg = "You have been banned from {} by {} for the following reason:\n{}".format(ctx.guild.name, ctx.message.author, reason)
                 await self.dm(member, dm_msg)
                 await member.ban(delete_message_days=0)
                 await ctx.send("I've banned {}.".format(member))
@@ -124,10 +135,15 @@ class Moderation:
         """
         channel = ctx.channel
         await channel.set_permissions(ctx.guild.default_role, send_messages=False)
-        await channel.send(":lock: Channel locked. The given reason is: {}".format(reason))
+        if reason == "":
+            await channel.send(":lock: Channel Locked")
+        else:
+            await channel.send(":lock: Channel locked. The given reason is: {}".format(reason))
         emb = discord.Embed(title="Lockdown", colour=discord.Colour.gold())
         emb.add_field(name="Channel:", value=ctx.channel.name, inline=True)
         emb.add_field(name="Mod:", value=ctx.message.author.name, inline=True)
+        if reason == "":
+            reason = "No Reason Given"
         emb.add_field(name="Reason:", value=reason, inline=True)
         logchannel = self.bot.logs_channel
         await logchannel.send("", embed=emb)
@@ -289,9 +305,8 @@ class Moderation:
             
     @commands.has_permissions(manage_roles=True)
     @commands.command()
-    async def mute(self, ctx, member: 
-        discord.Member):
-        """Mutes a user (Staff only)"""
+    async def mute(self, ctx, member, *, reason=""):
+        """Mutes a user. (Staff Only)"""
         try:
             member = ctx.message.mentions[0]
         except IndexError:
@@ -299,36 +314,50 @@ class Moderation:
         
         if self.bot.muted_role in member.roles:
             return await ctx.send("{} is already muted!".format(member))
-
+        
         try:
-            await member.add_roles(self.bot.muted_role, reason="You have been muted, reason: {}.".format(
-                ctx.message.author
-                ))
-            await ctx.send(f"{member} can no longer speak!")
-            await self.dm(member, "You have been muted. You will be DM'ed when a mod unmutes you.\n**Do not ask mods to unmute you, as doing so might extend the duration of the mute!**")
-
+            await member.add_roles(self.bot.muted_role)
+            await ctx.send("{} can no longer speak!".format(member))
+            if reason == "":
+                msg = "You have been muted in {} by {}. You will be DM'ed when a mod unmutes you.\n**Do not ask mods to unmute you, as doing so might extend the duration of the mute**".format(ctx.guild.name, ctx.message.author)
+            else:
+                msg = "You have been muted in {} by {}. The given reason is {}. You will be DM'ed when a mod unmutes you.\n**Do not ask mods to unmute you, as doing so might extend the duration of the mute**".format(ctx.guild.name, ctx.message.author, reason)
+            await self.dm(member, msg)
+            emb = discord.Embed(title="Member Muted", colour=discord.Colour.purple())
+            emb.add_field(name="Member:", value=member, inline=True)
+            emb.add_field(name="Mod:", value=ctx.message.author, inline=True)
+            if reason == "":
+                emb.add_field(name="Reason:", value="No reason specified.", inline=True)
+            else:
+                emb.add_field(name="Reason:", value=reason, inline=True)
+            logchannel = self.bot.logs_channel
+            await logchannel.send("", embed=emb)
         except discord.errors.Forbidden:
             await ctx.send("💢 I dont have permission to do this.")
+
 
     @commands.has_permissions(manage_roles=True)
     @commands.command()
     async def unmute(self, ctx, member):
-        """Unmutes a user (Staff only)"""
+        """Unmutes a user. (Staff Only)"""
         try:
             member = ctx.message.mentions[0]
         except IndexError:
             return await ctx.send("Please mention a user.")
-
+        
         if self.bot.muted_role not in member.roles:
-            return await ctx.send("{} isn't muted!".format(member))
-
+            return await ctx.send("{} is not muted!".format(member))
+        
         try:
-            await member.remove_roles(self.bot.muted_role, reason="Unmuted by {}.".format(
-                ctx.message.author
-               ))
-            await ctx.send("{} can now speak again!".format(member))
-            await self.dm(member, "You have been unmuted.")
-
+            await member.remove_roles(self.bot.muted_role)
+            await ctx.send("{} is no longer muted!".format(member))
+            msg = "You have been unmuted in {}.".format(ctx.guild.name)
+            await self.dm(member, msg)
+            emb = discord.Embed(title="Member Unmuted", colour=discord.Colour.purple())
+            emb.add_field(name="Member:", value=member, inline=True)
+            emb.add_field(name="Mod:", value=ctx.message.author, inline=True)
+            logchannel = self.bot.logs_channel
+            await logchannel.send("", embed=emb)
         except discord.errors.Forbidden:
             await ctx.send("💢 I dont have permission to do this.")
 
