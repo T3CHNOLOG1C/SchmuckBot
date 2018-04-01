@@ -74,7 +74,7 @@ class Games:
                 await user.send("Left FortNUT role")
 
             else:
-                await user.add_roles(self.bot.fornite_role)
+                await user.add_roles(self.bot.fortnite_role)
                 await user.send("Joined FortNUT role")
 
         elif role == "Overwatch":
