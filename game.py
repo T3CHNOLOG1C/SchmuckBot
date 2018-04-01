@@ -36,7 +36,7 @@ class Games:
             if self.bot.minecraft_role in user.roles:
                 await user.remove_roles(self.bot.minecraft_role)
                 await user.send("Left Minecraft role")
-                
+
             else:
                 await user.add_roles(self.bot.minecraft_role)
                 await user.send("Joined Minecraft role")
@@ -67,9 +67,9 @@ class Games:
             else:
                 await user.add_roles(self.bot.gtav_role)
                 await user.send("Joined GTAV role")
-        
+
         elif role == "FortNUT":
-            if self.bot.fornite_role in user.roles:
+            if self.bot.fortnite_role in user.roles:
                 await user.remove_roles(self.bot.fornite_role)
                 await user.send("Left FortNUT role")
 
@@ -128,7 +128,7 @@ class Games:
     @commands.command(pass_context=True)
     async def listgames(self, ctx,):
         """list game roles"""
-        
+
         await ctx.message.delete()
         embed = discord.Embed(title="List of Game roles", color=10689279)
         embed.description = """-PUBG
@@ -142,13 +142,11 @@ class Games:
 -Osu!
 -WarThunder
 -Payday 2
-"""       
+"""
         await ctx.send (embed=embed)
-            
+
 
 
 
 def setup(bot):
     bot.add_cog(Games(bot))
-
-        
