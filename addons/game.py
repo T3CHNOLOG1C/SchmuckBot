@@ -96,7 +96,7 @@ class Games:
                 await user.send("Joined CSGO role")
 
         elif role == "Osu":
-            if self.bot.osu_role in user.role:
+            if self.bot.osu_role in user.roles:
                 await user.remove_roles(self.bot.osu_role)
                 await user.send("Left Osu role")
 
