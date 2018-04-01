@@ -78,7 +78,7 @@ class Games:
                 await user.send("Joined FortNUT role")
 
         elif role == "Overwatch":
-            if self.bot.overwatch_role in user.role:
+            if self.bot.overwatch_role in user.roles:
                 await user.remove_roles(self.bot.overwatch_role)
                 await user.send("Left Overwatch role")
 
