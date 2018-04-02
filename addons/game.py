@@ -142,15 +142,16 @@ class Games:
         embed = discord.Embed(title="List of Game roles", color=10689279)
         embed.description = """-PUBG
 -Minecraft
--Rainbow 6 Seige
+-Rainbow6
 -Golf
 -GTAV
--Fortnite
+-FortNUT
 -Overwatch
 -CSGO
--Osu!
+-Osu
 -WarThunder
--Payday 2
+-Payday2
+-StickFight
 """
         await ctx.send (embed=embed)
 
