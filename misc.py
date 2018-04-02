@@ -31,7 +31,7 @@ class Misc:
     @commands.command()
     async def about(self, ctx):
         """About SchmuckBot."""
-        return await ctx.send("View code here: https://github.com/PhazonicRidley/SchmuckBot")
+        await ctx.send("View code here: https://github.com/PhazonicRidley/SchmuckBot")
 
     @commands.command(pass_context=True)
     async def sudo(self, ctx, roles):
