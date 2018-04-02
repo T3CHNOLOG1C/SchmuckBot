@@ -152,6 +152,7 @@ class Games:
 -WarThunder
 -Payday2
 -StickFight
+If you want a game added to the bot you can fill out [this](https://goo.gl/forms/F5XZmnQBQfhRxmmx1) fourm here.
 """
         await ctx.send (embed=embed)
 
