@@ -228,7 +228,7 @@ class Moderation:
 
         for nbr, warn in enumerate(js[id]["warns"]):
             content = "{}".format(warn["reason"])
-            if ctx.message.channel in self.bot.staff_channels.channels:
+            if ctx.message.channel in self.bot.botdev_channels.channels:
                 author = await self.bot.get_user_info(warn["author_id"])
                 content += "\n*Warn author : {} ({})*".format(warn["author"], author.mention)
             embed.add_field(name="\n\n#{}: {}".format(nbr + 1, warn["timestamp"]), value=content, inline=False)
