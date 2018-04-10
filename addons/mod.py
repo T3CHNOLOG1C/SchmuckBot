@@ -207,7 +207,7 @@ class Moderation:
 
         try:
             member = ctx.message.mentions[0]
-            if self.bot.staff_role in ctx.message.author.roles:
+            if self.bot.admin_role in ctx.message.author.roles:
                 has_perms = True
             else:
                 has_perms = False
