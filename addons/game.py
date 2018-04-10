@@ -130,6 +130,15 @@ class Games:
             else:
                 await user.add_roles(self.bot.stick_role)
                 await user.send("Joined Stick Fight role")
+               
+        elif role == "GMOD":
+            if self.bot.gmod_role in user.roles:
+                await user.remove_roles(self.bot.gmod_role)
+                await user.send("Left GMOD role")
+
+            else:
+                await user.add_roles(self.bot.gmod_role)
+                await user.send("Joined GMOD role")
 
         else:
             await user.send("{} is not a game role".format(role))
