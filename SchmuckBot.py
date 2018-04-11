@@ -73,7 +73,22 @@ async def on_ready():
     bot.payday2_role = discord.utils.get(guild.roles, name="Payday2")
     bot.stick_role = discord.utils.get(guild.roles, name="StickFight")
     bot.gmod_role = discord.utils.get(guild.roles, name="GMOD")
-    
+
+    #Game Roles Non-pingable
+    bot.pubgnp_role = discord.utils.get(guild.roles, name="PUBG-NP")
+    bot.minecraftnp_role = discord.utils.get(guild.roles, name="Minecraft-NP")
+    bot.r6snp_role = discord.utils.get(guild.roles, name="Rainbow6-NP")
+    bot.golfnp_role = discord.utils.get(guild.roles, name="Golf-NP")
+    bot.gtavnp_role = discord.utils.get(guild.roles, name="GTAV-NP")
+    bot.fortnitenp_role = discord.utils.get(guild.roles, name="FortNUT-NP")
+    bot.overwatchnp_role = discord.utils.get(guild.roles, name="Overwatch-NP")
+    bot.csgonp_role = discord.utils.get(guild.roles, name="CSGO-NP")
+    bot.osunp_role = discord.utils.get(guild.roles, name="Osu-NP")
+    bot.warthundernp_role = discord.utils.get(guild.roles, name="WarThunder-NP")
+    bot.payday2np_role = discord.utils.get(guild.roles, name="Payday2-NP")
+    bot.sticknp_role = discord.utils.get(guild.roles, name="StickFight-NP")
+    bot.gmodnp_role = discord.utils.get(guild.roles, name="GMOD-NP")
+
     # Channels
     bot.announcements_channel = discord.utils.get(guild.channels, name="announcements")
     bot.botdev_channel = discord.utils.get(guild.channels, name="botwork")

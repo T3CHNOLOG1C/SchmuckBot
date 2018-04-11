@@ -140,6 +140,123 @@ class Games:
                 await user.add_roles(self.bot.gmod_role)
                 await user.send("Joined GMOD role")
 
+        if role == "PUBG-NP":
+            if self.bot.pubgnp_role in user.roles:
+                await user.remove_roles(self.bot.pubgnp_role)
+                await user.send("Left PUBG-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.pubgnp_role)
+                await user.send("Joined PUBG-Not Pingable role")
+
+        elif role == "Minecraft-NP":
+            if self.bot.minecraftnp_role in user.roles:
+                await user.remove_roles(self.bot.minecraftnp_role)
+                await user.send("Left Minecraft-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.minecraftnp_role)
+                await user.send("Joined Minecraft-Not Pingable role")
+
+        elif role == "Rainbow6-NP":
+            if self.bot.r6snp_role in user.roles:
+                await user.remove_roles(self.bot.r6snp_role)
+                await user.send("Left Rainbow6-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.r6snp_role)
+                await user.send("Joined Rainbow6-Not Pingable role")
+
+        elif role == "Golf-NP":
+            if self.bot.golfnp_role in user.roles:
+                await user.remove_roles(self.bot.golfnp_role)
+                await user.send("Left Golf-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.golfnp_role)
+                await user.send("Joined Golf-Not Pingable role")
+
+        elif role == "GTAV-NP":
+            if self.bot.gtavnp_role in user.roles:
+                await user.remove_roles(self.bot.gtavnp_role)
+                await user.send("Left GTAV-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.gtavnp_role)
+                await user.send("Joined GTAV-Not Pingable role")
+
+        elif role == "FortNUT-NP":
+            if self.bot.fortnitenp_role in user.roles:
+                await user.remove_roles(self.bot.fortnitenp_role)
+                await user.send("Left FortNUT-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.fortnitenp_role)
+                await user.send("Joined FortNUT-Not Pingable role")
+
+        elif role == "Overwatch-NP":
+            if self.bot.overwatchnp_role in user.roles:
+                await user.remove_roles(self.bot.overwatchnp_role)
+                await user.send("Left Overwatch-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.overwatchnp_role)
+                await user.send("Joined Overwatch-Not Pingable role")
+
+        elif role == "CSGO-NP":
+            if self.bot.csgonp_role in user.roles:
+                await user.remove_roles(self.bot.csgonp_role)
+                await user.send("Left CSGO-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.csgonp_role)
+                await user.send("Joined CSGO-Not Pingable role")
+
+        elif role == "Osu-NP":
+            if self.bot.osunp_role in user.roles:
+                await user.remove_roles(self.bot.osunp_role)
+                await user.send("Left Osu-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.osunp_role)
+                await user.send("Joined Osu-Not Pingable role")
+
+        elif role == "WarThunder-NP":
+            if self.bot.warthundernp_role in user.roles:
+                await user.remove_roles(self.bot.warthundernp_role)
+                await user.send("Left WarThunder-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.warthundernp_role)
+                await user.send("Joined WarThunder-Not Pingable role")
+
+        elif role == "Payday2-NP":
+            if self.bot.payday2np_role in user.roles:
+                await user.remove_roles(self.bot.payday2np_role)
+                await user.send("Left Payday2-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.payday2np_role)
+                await user.send("Joined Payday2-Not Pingable role")
+
+        elif role == "StickFight-NP":
+            if self.bot.sticknp_role in user.roles:
+                await user.remove_roles(self.bot.sticknp_role)
+                await user.send("Left Stick Fight-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.sticknp_role)
+                await user.send("Joined Stick Fight-Not Pingable role")
+               
+        elif role == "GMOD-NP":
+            if self.bot.gmodnp_role in user.roles:
+                await user.remove_roles(self.bot.gmodnp_role)
+                await user.send("Left GMOD-Not Pingable role")
+
+            else:
+                await user.add_roles(self.bot.gmodnp_role)
+                await user.send("Joined GMOD-Not Pingable role")
+
         else:
             await user.send("{} is not a game role".format(role))
 
