@@ -278,7 +278,9 @@ class Games:
 -WarThunder
 -Payday2
 -StickFight
+
 You can get a non-pingable role by adding "-NP" to the end of the game so you don't get @mentioned when someone wants to play
+
 If you want a game added to the bot you can fill out [this](https://goo.gl/forms/F5XZmnQBQfhRxmmx1) fourm here.
 """
         await ctx.send (embed=embed)
