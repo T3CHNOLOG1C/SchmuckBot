@@ -140,6 +140,8 @@ class Games:
                 await user.add_roles(self.bot.gmod_role)
                 await user.send("Joined GMOD role")
 
+    # Non Pingables
+
         if role == "PUBG-NP":
             if self.bot.pubgnp_role in user.roles:
                 await user.remove_roles(self.bot.pubgnp_role)
