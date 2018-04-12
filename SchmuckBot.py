@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3.6
+#!/usr/bin/env python3.6
 
 import os
 import configparser
@@ -60,33 +60,33 @@ async def on_ready():
     #bot.schmuck_role = discord.utils.get(guild.roles, name="Schmucks")
 
     #Game Roles
+    bot.fortnite_role = discord.utils.get(guild.roles, name="FortNUT")
     bot.pubg_role = discord.utils.get(guild.roles, name="PUBG")
+    bot.payday2_role = discord.utils.get(guild.roles, name="Payday2")
     bot.minecraft_role = discord.utils.get(guild.roles, name="Minecraft")
+    bot.overwatch_role = discord.utils.get(guild.roles, name="Overwatch")
+    bot.stick_role = discord.utils.get(guild.roles, name="StickFight")
     bot.r6s_role = discord.utils.get(guild.roles, name="Rainbow6")
     bot.golf_role = discord.utils.get(guild.roles, name="Golf")
     bot.gtav_role = discord.utils.get(guild.roles, name="GTAV")
-    bot.fortnite_role = discord.utils.get(guild.roles, name="FortNUT")
-    bot.overwatch_role = discord.utils.get(guild.roles, name="Overwatch")
     bot.csgo_role = discord.utils.get(guild.roles, name="CSGO")
     bot.osu_role = discord.utils.get(guild.roles, name="Osu")
     bot.warthunder_role = discord.utils.get(guild.roles, name="WarThunder")
-    bot.payday2_role = discord.utils.get(guild.roles, name="Payday2")
-    bot.stick_role = discord.utils.get(guild.roles, name="StickFight")
     bot.gmod_role = discord.utils.get(guild.roles, name="GMOD")
 
     #Game Roles Non-pingable
+    bot.fortnitenp_role = discord.utils.get(guild.roles, name="FortNUT-NP")
     bot.pubgnp_role = discord.utils.get(guild.roles, name="PUBG-NP")
+    bot.payday2np_role = discord.utils.get(guild.roles, name="Payday2-NP")
     bot.minecraftnp_role = discord.utils.get(guild.roles, name="Minecraft-NP")
+    bot.overwatchnp_role = discord.utils.get(guild.roles, name="Overwatch-NP")
+    bot.sticknp_role = discord.utils.get(guild.roles, name="StickFight-NP")
     bot.r6snp_role = discord.utils.get(guild.roles, name="Rainbow6-NP")
     bot.golfnp_role = discord.utils.get(guild.roles, name="Golf-NP")
     bot.gtavnp_role = discord.utils.get(guild.roles, name="GTAV-NP")
-    bot.fortnitenp_role = discord.utils.get(guild.roles, name="FortNUT-NP")
-    bot.overwatchnp_role = discord.utils.get(guild.roles, name="Overwatch-NP")
     bot.csgonp_role = discord.utils.get(guild.roles, name="CSGO-NP")
     bot.osunp_role = discord.utils.get(guild.roles, name="Osu-NP")
     bot.warthundernp_role = discord.utils.get(guild.roles, name="WarThunder-NP")
-    bot.payday2np_role = discord.utils.get(guild.roles, name="Payday2-NP")
-    bot.sticknp_role = discord.utils.get(guild.roles, name="StickFight-NP")
     bot.gmodnp_role = discord.utils.get(guild.roles, name="GMOD-NP")
 
     # Channels
