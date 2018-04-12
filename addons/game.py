@@ -278,6 +278,7 @@ class Games:
 -WarThunder
 -Payday2
 -StickFight
+-GMOD
 
 You can get a non-pingable role by adding "-NP" to the end of the game so you don't get @mentioned when someone wants to play
 
