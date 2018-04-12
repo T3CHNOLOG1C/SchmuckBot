@@ -146,7 +146,6 @@ class Games:
                 await user.send("Left FortNUT-Not Pingable role")
 
             else:
-                await user.remove_roles(self.bot.fortnite_role)
                 await user.add_roles(self.bot.fortnitenp_role)
                 await user.send("No more pings from FortNUT")
 
