@@ -126,9 +126,6 @@ class Games:
             else:
                 await user.add_roles(self.bot.warthunder_role)
                 await user.send("Joined WarThunder role")
-            else:
-                await user.add_roles(self.bot.stick_role)
-                await user.send("Joined Stick Fight role")
 
         elif role == "GMOD":
             if self.bot.gmod_role in user.roles:
