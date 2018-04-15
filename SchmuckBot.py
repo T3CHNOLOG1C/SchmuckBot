@@ -109,6 +109,7 @@ async def on_ready():
         'addons.mod',
         'addons.game',
         'addons.events',
+       # 'addons.emojif'
      ]
 
     # Notify user if an addon fails to load.
@@ -229,6 +230,15 @@ async def restart(ctx):
     if bot.botdev_role in dev.roles or bot.owner_role in dev.roles:
         await ctx.send("`Restarting, please wait...`")
         execv("python3 SchmuckBot", argv)
+
+@commands.has_role("SchmuckBotAllow")
+@bot.command()
+async def quit(ctx):
+    """Shutdowns the bot"""
+    await ctx.send('wew, I can drop the act that I care now!')
+    print("\nBot Quit By User")
+    await bot.logout()
+
 
 # Run the bot
 bot.run(config['Main']['token'])
